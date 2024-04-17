@@ -13,8 +13,8 @@
     <body>
         <nav class="navbar navbar-expand-lg", id="topNavigation">
             <div class="container-fluid justify-content-center", id="navigation">
-                <a class="navbar-brand mx-4" href="{{ url_for('core.index') }}">
-                    <img src="{{ url_for('static', filename='Logo.png') }}" alt="logo">
+                <a class="navbar-brand mx-4" href="{{ url_for('core.index')}}">
+                    <img src="{{ url_for('static', filename='logo.png')}}" alt="logo">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -22,80 +22,30 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav text-center" id="navbar">
                         <li class="nav-item nav-fill">
-                            <a class="nav-link" aria-current="page" href="{{ url_for('core.index') }}">Home</a>
+                            <a class="nav-link" aria-current="page" href="{{ url_for('core.index')}}">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url_for('core.cars') }}">Buy</a>
+                            <a class="nav-link" href="{{ url_for('core.cars')}}">Buy</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('core.contact')}}">Contact</a>
                         </li>
                         {% if not current_user.is_authenticated %}
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url_for('users.login') }}">Login</a>
+                            <a class="nav-link" href="{{ url_for('users.login')}}">Login</a>
                         </li>
-                        {% endif %}                        
+                        {% endif %}
                     </ul>
                 </div>
             </div>
         </nav>
-        <div class="container-fluid" style="width: 80%">
-        {% block content %}
-        {% endblock %}
+        <div class="container-fluid" style="width: 80%; padding-top: 5vw; padding-bottom: 1vw;">
+            {% block content %}
+            {% endblock %}
         </div>
         
         <!-- Footer -->
         <footer class="text-center text-lg-start text-muted">
-            <!-- Section: Social media -->
-            <section class="pe-4 pt-4 d-flex justify-content-center", id="socialMedia">
-                <!-- Left -->
-                <div class="mt-2 me-3 d-none d-sm-block">
-                    <span>Connect with us on social networks: </span>
-                </div>
-                
-                <!-- Left -->
-
-                <!-- Right -->
-                <div>
-                    <!-- Facebook -->
-                    <a
-                        data-mdb-ripple-init
-                        class="btn text-white btn-floating m-1"
-                        style="background-color: #3b5998;"
-                        href="#!"
-                        role="button"
-                        ><i class="fab fa-facebook-f"></i
-                    ></a>
-                    <!-- X -->
-                    <a
-                        data-mdb-ripple-init
-                        class="btn text-white btn-floating m-1"
-                        style="background-color: #333333;"
-                        href="#!"
-                        role="button"
-                        ><i class="fa-brands fa-x-twitter"></i
-                    ></a>
-                    <!-- Instagram -->
-                    <a
-                        data-mdb-ripple-init
-                        class="btn text-white btn-floating m-1"
-                        style="background-color: #ac2bac;"
-                        href="#!"
-                        role="button"
-                        ><i class="fab fa-instagram"></i
-                    ></a>
-
-                    <!-- Linkedin -->
-                    <a
-                        data-mdb-ripple-init
-                        class="btn text-white btn-floating m-1"
-                        style="background-color: #0082ca;"
-                        href="#!"
-                        role="button"
-                        ><i class="fab fa-linkedin-in"></i
-                    ></a>
-                </div>
-                <!-- Right -->
-            </section>
-            <!-- Section: Social media -->
-
             <!-- Section: Links  -->
             <section class="mainFooter">
                 <div class="container text-center text-md-start ">
@@ -104,30 +54,22 @@
                         <!-- Grid column -->
                         <div class="col-md-3 col-lg-4 col-xl-3 mt-2 mx-auto mb-4">
                         <!-- Content -->
-                            <a href="{{ url_for('core.index') }}">
-                                <img src="{{ url_for('static', filename='Logo.png')}}" alt="logo">
+                            <a href="{{ url_for('core.index')}}">
+                                <img src="{{ url_for('static', filename='logo.png')}}" alt="logo">
                             </a>
                             <p>
-                                Search, find and buy your next quality checked car online.
+                                Search, find and buy the perfect car for you online today.
                             </p>
                         </div>
                         <!-- Grid column -->
 
                         <!-- Grid column -->
-                        <div class="col-md-2 col-lg-2 col-xl-2 mt-4 mx-auto mb-4">
-                            <!-- Links -->
-                            <h6 class="text-uppercase fw-bold mb-4">
-                                Site Links
-                            </h6>
-                            <p>
-                                <a href="{{ url_for('core.index') }}" class="text-reset">Home</a>
-                            </p>
-                            <p>
-                                <a href="{{ url_for('core.cars') }}" class="text-reset">Buy</a>
-                            </p>
-                            <p>
-                                <a href="#!" class="text-reset">Login</a>
-                            </p>
+                        <div class="col-md-4 col-lg-3 col-xl-3 mt-4 mx-auto mb-md-0 mb-4">
+                        <!-- Contact -->
+                            <h6 class="text-uppercase fw-bold mb-4">Contact Us</h6>
+                            <p><i class="fa-solid fa-map-location-dot me-3"></i> Park Cres, Peterborough PE1 4DZ</p>
+                            <p><i class="fa-solid fa-inbox me-3"></i> info@galacticmotors.co.uk</p>
+                            <p><i class="fa-solid fa-phone-volume me-3"></i> 01733 214466</p>
                         </div>
                         <!-- Grid column -->
 
@@ -135,28 +77,17 @@
                         <div class="col-md-3 col-lg-2 col-xl-2 mt-4 mx-auto mb-4">
                             <!-- Links -->
                             <h6 class="text-uppercase fw-bold mb-4">
-                                Useful links
+                                Useful car links
                             </h6>
                             <p>
-                                <a href="https://www.gocompare.com/" target="_blank" class="text-reset">Insurance</a>
+                                <a href="https://www.moneysupermarket.com/car-insurance/" target="_blank" class="text-reset">Insurance</a>
                             </p>
                             <p>
-                                <a href="https://www.carfinance247.co.uk/" target="_blank" class="text-reset">Finances</a>
+                                <a href="https://jbrcapital.com/" target="_blank" class="text-reset">Finances</a>
                             </p>
                             <p>
-                                <a href="https://www.webuyanycar.com/" target="_blank" class="text-reset">Car sales</a>
+                                <a href="https://www.motorpoint.co.uk/stores" target="_blank" class="text-reset">Car sales</a>
                             </p>
-                        </div>
-                        <!-- Grid column -->
-
-                        <!-- Grid column -->
-                        <div class="col-md-4 col-lg-3 col-xl-3 mt-4 mx-auto mb-md-0 mb-4">
-                        <!-- Links -->
-                            <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
-                            <p><i class="fas fa-home me-3"></i> 52 Cowgate, Peterborough, PE1 1NA</p>
-                            <p>
-                                <i class="fas fa-envelope me-3"></i> info@buyacar.co.uk</p>
-                            <p><i class="fas fa-phone me-3"></i> 01733 345634</p>
                         </div>
                         <!-- Grid column -->
                     </div>
@@ -166,12 +97,13 @@
             <!-- Section: Links  -->
 
         <!-- Copyright -->
-            <div class="text-center p-4" style="background-color: #AC94D4; color: #080808;">
-                © 2024 Copyright: BuyaCar Ltd.
+            <div class="p-4" style="background-color: #3e45c2; color: white;">
+                ©2024 Galactic Motors. All rights reserved.
             </div>
         <!-- Copyright -->
         </footer>
         <!-- Footer -->
-        <script src="{{ url_for('static', filename='global.js') }}"></script>
+        
+        <script src="{{ url_for('static', filename='global.js')}}"></script>
     </body>
 </html>

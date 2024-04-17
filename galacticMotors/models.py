@@ -87,25 +87,19 @@ class User(UserMixin ,db.Model):
 
     def __repr__(self):
         return f'User {self.name}'
-    
+
 class CarModelView(ModelView):
     column_list = ('carIndex','make', 'model', 'reg', 'colour', 'miles', 'price', 'dealer', 'town', 'telephone', 'description', 'region', 'picture', 'owner')
     form_columns = ('carIndex','make', 'model', 'reg', 'colour', 'miles', 'price', 'dealer', 'town', 'telephone', 'description', 'region', 'picture', 'client_id')
     column_searchable_list = ('carIndex', 'make', 'model', 'client_id')
-    
-    
+
 class CarInlineModelForm(InlineFormAdmin):
     form_columns = ('carIndex','make', 'model', 'reg', 'colour', 'miles', 'price', 'dealer', 'town', 'telephone', 'description', 'region', 'picture')   
-    
 
 class ClientModelView(ModelView):
     column_list = ('name', 'surname', 'email', 'phone', 'address', 'town', 'postcode', 'purchase_date', 'cars')
     inline_models = (CarInlineModelForm(Car),)
 
-    
 admin.add_view(CarModelView(Car, db.session))
 admin.add_view(ClientModelView(Client, db.session))
 admin.add_link(LogoutMenuLink(name='Logout', category='', url="/logout"))
-
-    
-        

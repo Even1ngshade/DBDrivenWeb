@@ -1,5 +1,5 @@
 // This is your test publishable API key.
-const stripe = Stripe("pk_test_51Oyfo6P7tQOhIrsaVfoAJxVBwmZgg4RSe69UmfiTqHe0hOXKxlm3ye0YW9PGW35Gg1eahahWCSfg1h6qO6zpd0FZ00nmJSo8dZ");
+const stripe = Stripe("pk_test_51P5p6G01NS80YBx3Ho9Qfpv3Nkw0LoquH8twwg0gny9ZVsM0Sinlcihr9ohBobjqbAYbR7FrF21Q5J3EYcBpOGHg00MjCJYIbm");
 
 // The items the customer wants to buy
 const items = [{ id: "xl-tshirt" }];
@@ -43,10 +43,6 @@ async function handleSubmit(e) {
 
   const { error } = await stripe.confirmPayment({
     elements,
-    confirmParams: {
-      // Make sure to change this to your payment completion page
-      return_url: `https://database-driven-web-1ec79a188d87.herokuapp.com//thankyou/${car_id}`,
-    },
   });
   
 

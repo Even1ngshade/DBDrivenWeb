@@ -62,7 +62,3 @@ function updateDropdown(dropdownId, options) {
         dropdown.appendChild(optionElement);
     });
 }
-
-
-  
-  

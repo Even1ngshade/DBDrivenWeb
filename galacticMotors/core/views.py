@@ -6,7 +6,7 @@ import json
 import stripe
 
 # This is your test secret API key.
-stripe.api_key = 'sk_test_51Oyfo6P7tQOhIrsaoqV41g2YaSDc2cAB6Qjt4tXoKWfVkQ6eAhRqatbYrHxKhi71AbiAOgV4y3HL0TfL3Myjl82I003C2UEtc4'
+stripe.api_key = 'sk_test_51P5p6G01NS80YBx3tk7qZ9lUS6N3GtoUup5op3nS2b793fu7nXqZx6KCuyk6KpoGYDhC8XGqeTUumky0IUXAaHCX00JetJdWz8'
 
 # Creates blueprint for core
 core = Blueprint('core', __name__)
@@ -31,7 +31,7 @@ def cars():
     regions = Car.query.with_entities(Car.region).distinct().all()
     # Query to get all cars
     query = Car.query
-    cars = query.paginate(page=page, per_page=6)
+    cars = query.paginate(page=page, per_page=8)
     return render_template('cars.html', cars=cars, filters=filters, priceFilters=priceFilters, makes=makes, models=models, towns=towns, regions=regions)
 
 @core.route('/filtered-cars', methods=['GET', 'POST'])
@@ -142,6 +142,10 @@ def carform(car_id):
         return redirect(url_for('core.checkout', car_id=car.carIndex))    
     return render_template('carform.html', car=car, form=form)
 
+@core.route('/contact')
+def contact():
+    return render_template('contact.html')
+
 @core.route('/checkout/<int:car_id>')
 def checkout(car_id):
     car = Car.query.get(car_id) 
@@ -157,7 +161,7 @@ def create_payment(car_price):
         intent = stripe.PaymentIntent.create(
             amount=car_price,
             currency='gbp',
-            # In the latest version of the API, specifying the `automatic_payment_methods` parameter is optional because Stripe enables its functionality by default.
+            # In the latest version of the API, specifying the 'automatic_payment_methods' parameter is optional because Stripe enables its functionality by default.
             automatic_payment_methods={
                 'enabled': True,
             },
@@ -167,12 +171,3 @@ def create_payment(car_price):
         })
     except Exception as e:
         return jsonify(error=str(e)), 403
-
-@core.route('/thankyou/<car_id>')
-def thankyou(car_id):
-    car = Car.query.get(car_id) 
-    
-    return render_template('thankyou.html', car=car)
-    
-
-

@@ -8,9 +8,11 @@ users = Blueprint('users', __name__)
 
 @users.route("/login", methods=['GET','POST'])
 def login():
-    # Creates new admin user with name admin and hashed password admin123
-    #password = 'admin123'
+    # Creates new admin user with name admin1 and hashed password admin123
+    # they're this to make it easy to remember while presenting
+    # they're hashed as you only need to run the code once
     #name = 'admin1'
+    #password = 'admin123'
     #newuser = User(name=name, password=generate_password_hash(password, method='pbkdf2'))
     # Adds the new user to the database
     #db.session.add(newuser)

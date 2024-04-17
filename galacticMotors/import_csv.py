@@ -12,4 +12,3 @@ def load_csv_data():
         price=row['price'], dealer=row['dealer'], town=row['town'], telephone=row['telephone'], description=row['description'], region=row['region'])
         db.session.add(car)
     db.session.commit()
-

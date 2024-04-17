@@ -1,6 +1,13 @@
 #topNavigation, #navigation {
-    background-color: #AC94D4;
     color:#080808;
+    height: 80px;
+    width: 100%;
+    background: #92ebff;
+    position: fixed;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    z-index: 2;
 }
 
 ul {
@@ -9,20 +16,38 @@ ul {
 }
 
 #socialMedia {
-    background-color: #B5A2D4;
+    background-color: #477cd2;
     color: #080808;
 }
 
 .mainFooter {
-    background-color: #B5A2D4;
+    background-color: #3e45c2;
     color: #080808
+}
+
+.mainFooter p, .mainFooter h6 {
+    color: white;
 }
 
 a {
     color: #080808;
 }
+
+.carMakeLinks, .townLinks {
+    text-decoration: none;
+}
+
 .btn-secondary {
+    background-color: lightskyblue;
     width: 30%;
+}
+
+.carPageAlign {
+    margin-right: -15%;
+}
+
+.carFilters {
+    display: flex;
 }
 
 #applyFilter, #clearFilter {
@@ -36,6 +61,169 @@ a {
 #namel, #pwd {
     width: 40%;
 } 
+
+.lform {
+    width:35rem;
+    margin: auto;
+    color:whitesmoke;
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgb(7 90 137 / 58%);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+    padding: 20px 25px;
+}
+  
+input[type=name], input[type=password]{
+    width: 100%;
+    margin: 10px 0;
+    border-radius: 5px;
+    padding: 15px 18px;
+    box-sizing: border-box;
+}
+  
+button {
+    background-color: #030804;
+    color: white;
+    padding: 14px 20px;
+    border-radius: 5px;
+    margin: 7px 0;
+    width: 100%;
+    font-size: 18px;
+}
+  
+button:hover {
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+.contact {
+    height: 1200px;
+}
+
+.contact .container {
+    width: 85%;
+    background: #fff;
+    border-radius: 6px;
+    padding: 20px 60px 30px 40px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.contact .content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.container .content .left-side {
+    width: 25%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+    position: relative;
+}
+
+.content .left-side::before {
+    content: '';
+    position: absolute;
+    height: 70%;
+    width: 2px;
+    right: -15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #afafb6;
+}
+
+.content .left-side .details {
+    margin: 14px;
+    text-align: center;
+}
+
+.content .left-side .details i {
+    font-size: 30px;
+    color: rgb(19, 75, 180);
+    margin-bottom: 10px;
+}
+
+.content .left-side .details .topic {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.content .left-side .details .text-one, .content .left-side .details .text-two {
+    font-size: 14px;
+    color: #afafb6;
+}
+
+.container .content .right-side {
+    width: 75%;
+    margin-left: 75px;
+}
+
+.content .right-side .topic-text {
+    font-size: 23px;
+    font-weight: 600;
+    color: #09678c;
+}
+
+.right-side .input-box {
+    height: 50px;
+    width: 100%;
+    margin: 12px 0;
+}
+
+.right-side .input-box input, .right-side .input-box textarea {
+    height: 100%;
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    background: #F0F1F8;
+    border-radius: 6px;
+    padding: 0 15px;
+    resize: none;
+}
+
+.right-side .message-box {
+    min-height: 110px;
+}
+
+.right-side .input-box textarea {
+    padding-top: 6px;
+}
+
+.right-side .button {
+    display: inline-block;
+    margin-top: 12px;
+    margin-bottom: 0;
+}
+
+.right-side .button input[type="button"] {
+    color: #fff;
+    font-size: 18px;
+    outline: none;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    background: #09678c;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.button input[type="button"]:hover {
+    background: #0340a8;
+}
+
+.map {
+    display: flex;
+    height: 620px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
 
 @media(max-width: 750px) {    
     .btn {
