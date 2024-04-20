@@ -6,7 +6,6 @@
 <div class="container-fluid mt-4 carPageAlign">
   <div class="row">
     <div class="col-lg-12 mt-4 mb-4">
-      <!-- Displays active filters -->
         <div class="filters mb-4">
           <h2>Filters</h2>
           {% if filters.make %}<span>Make: {{ filters.make }}</span>{% endif %}
@@ -16,13 +15,13 @@
           {% if priceFilters.minPrice %}<span>Min price: {{ priceFilters.minPrice }}</span>{% endif %}
           {% if priceFilters.maxPrice %}<span>Max price: {{ priceFilters.maxPrice }}</span>{% endif %}
           <form method="get" action="{{ url_for('core.clear_filters') }}">
-            <button type="submit" class="btn btn-secondary btn-md" id="clearFilter" aria-label="Clear the filters">Clear All Filters</button>
+            <button type="submit" class="btn btn-secondary btn-md" id="clearFilter" aria-label="Clear all filters">Clear All Filters</button>
           </form>
         </div>
         <form method="post" action="{{ url_for('core.filtered_cars') }}">
           <div class="col-lg-12 carFilters">
             <div class="col-lg-2">
-              <select name="make" class="form-select form-select-lg mb-3", id="makeDropdown" aria-label="Select make for a car">
+              <select name="make" class="form-select form-select-lg mb-3", id="makeDropdown" aria-label="Select make">
                 <option value="">Select Make</option>
                 {% for make in makes %}
                 <option value="{{ make[0] }}">{{ make[0] }}</option>
@@ -30,7 +29,7 @@
               </select>
             </div>
             <div class="col-lg-2">
-              <select name="model" class="form-select form-select-lg mb-3", id="modelDropdown" aria-label="Select model for a car">
+              <select name="model" class="form-select form-select-lg mb-3", id="modelDropdown" aria-label="Select model">
                 <option value="">Select Model</option>
                 {% for model in models %}
                 <option value="{{ model[0] }}">{{ model[0] }}</option>
@@ -38,7 +37,7 @@
                 </select>
             </div>
             <div class="col-lg-2">
-              <select name="town" class="form-select form-select-lg mb-3", id="townDropdown" aria-label="Select town for a car">
+              <select name="town" class="form-select form-select-lg mb-3", id="townDropdown" aria-label="Select town">
                 <option value="">Select Town</option>
                 {% for town in towns %}
                 <option value="{{ town[0] }}">{{ town[0] }}</option>
@@ -46,7 +45,7 @@
               </select>
             </div>
             <div class="col-lg-2">
-              <select name="region" class="form-select form-select-lg mb-3", id="regionDropdown" aria-label="Select region for a car">
+              <select name="region" class="form-select form-select-lg mb-3", id="regionDropdown" aria-label="Select region">
                 <option value="">Select Region</option>
                 {% for region in regions %}
                 <option value="{{ region[0] }}">{{ region[0] }}</option>
@@ -82,7 +81,7 @@
           <h5><i class="fa-solid fa-city"></i> {{ car.town }}</h5>
           <p class="card-text">{{ car.description }}</p>
           <h3 class="card-title">£{{ car.price }}</h3>
-          <button type="button" class="btn btn-secondary" id="carButton" aria-label="Open modal to view more details" data-bs-toggle="modal" data-bs-target="#modal{{ car.carIndex }}">View deal</button>
+          <button type="button" class="btn btn-secondary" id="carButton" aria-label="click to view more details" data-bs-toggle="modal" data-bs-target="#modal{{ car.carIndex }}">View details</button>
         </div>
       </div>
         <div class="modal fade" id="modal{{ car.carIndex }}">
