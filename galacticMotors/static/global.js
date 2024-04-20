@@ -45,12 +45,9 @@ document.addEventListener('DOMContentLoaded', function() {
         } 
     });
 });
-
-// Updates dropdown options
 function updateDropdown(dropdownId, options) {
     var dropdown = document.getElementById(dropdownId);
-    dropdown.innerHTML = ''; // Clears existing options
-    // Create and append the 'Select' option
+    dropdown.innerHTML = '';
     var defaultOption = document.createElement('option');
     defaultOption.value = '';
     defaultOption.textContent = 'Select options';

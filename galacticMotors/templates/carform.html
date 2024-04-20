@@ -3,13 +3,6 @@
     {{ car.make }} {{ car.model }}
 {% endblock %}
 {% block content %}
-<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
-    <ol class="breadcrumb mt-4">
-      <li class="breadcrumb-item"><a href="{{ url_for('core.index') }}">Home</a></li>
-      <li class="breadcrumb-item"><a href="{{ url_for('core.cars') }}">Cars</a></li>
-      <li class="breadcrumb-item active" aria-current="page">Car form</li>
-    </ol>
-</nav>
 <div class="container-fluid mt-4">
     <div class="row">
         <div class="col-md-9 mt-4 mb-4">            
@@ -63,22 +56,18 @@
                     </div>                            
                     <div class="form-group">
                         <button type="button" class="btn btn-secondary float-end" data-bs-toggle="modal" data-bs-target="#myModal">
-                            Continue
+                            Next
                         </button>
                     </div>
-                    <!-- The Modal -->
                     <div class="modal" id="myModal">
                         <div class="modal-dialog">
-                            <div class="modal-content">  
-                                <!-- Modal Header -->
+                            <div class="modal-content">
                                 <div class="modal-header">                        
                                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                                </div>  
-                                <!-- Modal body -->
+                                </div>
                                 <div class="modal-body">
-                                    <h5>Please can you check to confirm that the data you've provided here is correct to your understanding.</h5>
-                                </div>  
-                                <!-- Modal footer -->
+                                    <h5>Please can you check to confirm that the data that you have provided here is correct to your full understanding.</h5>
+                                </div>
                                 <div class="modal-footer">                                    
                                     {{ form.submit(class="btn btn-success")}}
                                 </div>  
@@ -93,9 +82,9 @@
                 <img class="card-img-top rounded" src="{{ url_for('static', filename=car.make ~ car.model ~ '.png') }}" alt="{{ car.make }} {{ car.model }}">       
                 <div class="card-body">        
                     <h4 class="card-title">{{ car.make }} {{ car.model }}</h4>
-                    <p class="card-text">Car identification number: {{ car.carIndex }}</p>                       
+                    <p class="card-text">Car Identification Number: {{ car.carIndex }}</p>                       
                     <p class="card-text"><i class="fa-solid fa-city"></i> {{ car.town }}</p>
-                    <p class="card-text">Dealer information: {{ car.dealer }} </p>
+                    <p class="card-text">Dealer Info: {{ car.dealer }} </p>
                     <p class="card-text">{{ car.telephone }}</p>
                     <h3 class="card-title">£{{ car.price }}</h3>      
                 </div>

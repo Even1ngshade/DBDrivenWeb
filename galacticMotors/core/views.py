@@ -6,7 +6,7 @@ import json
 import stripe
 
 # This is your test secret API key.
-stripe.api_key = 'sk_test_51P5p6G01NS80YBx3tk7qZ9lUS6N3GtoUup5op3nS2b793fu7nXqZx6KCuyk6KpoGYDhC8XGqeTUumky0IUXAaHCX00JetJdWz8'
+stripe.api_key = 'sk_test_51P5p6G01NS80YBx34MgQlX1Q8AWKeaXPYldnl1vzzOPo5EP7McyvnmQS7nQ17f6oAZEDXbHlWVhnTHwTZF6rVPD200iPhMUR6q'
 
 # Creates blueprint for core
 core = Blueprint('core', __name__)
@@ -34,6 +34,7 @@ def cars():
     cars = query.paginate(page=page, per_page=8)
     return render_template('cars.html', cars=cars, filters=filters, priceFilters=priceFilters, makes=makes, models=models, towns=towns, regions=regions)
 
+# I've tried changing the def name to just filteredCars but it breaks the code for some reason
 @core.route('/filtered-cars', methods=['GET', 'POST'])
 def filtered_cars():
     page = request.args.get('page', 1, type=int)
@@ -89,7 +90,8 @@ def filtered_cars():
     # Execute the query and paginate results
     cars = query.paginate(page=page, per_page=6)
     return render_template('cars.html', cars=cars, filters=filters, priceFilters=priceFilters, makes=makes, models=models, towns=towns, regions=regions)
- 
+
+# I've tried changing the def name to just clearFilters but it breaks the code for some reason
 @core.route('/clear-filters')
 def clear_filters():
     # List of filter keys to clear from the session
@@ -100,6 +102,7 @@ def clear_filters():
     # Redirects back to the cars page
     return redirect(url_for('core.cars'))
 
+# I've tried changing the def name to just getModels but it breaks the code for some reason
 # Handles AJAX request and returns models for a selected make
 @core.route('/get-models/<make>')
 def get_models(make):
@@ -107,6 +110,7 @@ def get_models(make):
     model_list = [model[0] for model in models]  # Converts to a simple list
     return jsonify(model_list)
 
+# I've tried changing the def name to just getTowns but it breaks the code for some reason
 # Handles AJAX request and returns towns for a selected model
 @core.route('/get-towns/<model>')
 def get_towns(model):
@@ -114,6 +118,7 @@ def get_towns(model):
     town_list = [town[0] for town in towns]  # Converts to a simple list
     return jsonify(town_list)
 
+# I've tried changing the def name to just getRegions but it breaks the code for some reason
 # Handles AJAX request and returns regions for a selected model
 @core.route('/get-regions/<model>')
 def get_regions(model):

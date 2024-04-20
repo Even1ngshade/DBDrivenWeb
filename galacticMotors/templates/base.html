@@ -43,39 +43,17 @@
             {% block content %}
             {% endblock %}
         </div>
-        
-        <!-- Footer -->
         <footer class="text-center text-lg-start text-muted">
-            <!-- Section: Links  -->
             <section class="mainFooter">
                 <div class="container text-center text-md-start ">
-                <!-- Grid row -->
                     <div class="row">
-                        <!-- Grid column -->
-                        <div class="col-md-3 col-lg-4 col-xl-3 mt-2 mx-auto mb-4">
-                        <!-- Content -->
-                            <a href="{{ url_for('core.index')}}">
-                                <img src="{{ url_for('static', filename='logo.png')}}" alt="logo">
-                            </a>
-                            <p>
-                                Search, find and buy the perfect car for you online today.
-                            </p>
-                        </div>
-                        <!-- Grid column -->
-
-                        <!-- Grid column -->
                         <div class="col-md-4 col-lg-3 col-xl-3 mt-4 mx-auto mb-md-0 mb-4">
-                        <!-- Contact -->
                             <h6 class="text-uppercase fw-bold mb-4">Contact Us</h6>
                             <p><i class="fa-solid fa-map-location-dot me-3"></i> Park Cres, Peterborough PE1 4DZ</p>
                             <p><i class="fa-solid fa-inbox me-3"></i> info@galacticmotors.co.uk</p>
                             <p><i class="fa-solid fa-phone-volume me-3"></i> 01733 214466</p>
                         </div>
-                        <!-- Grid column -->
-
-                        <!-- Grid column -->
                         <div class="col-md-3 col-lg-2 col-xl-2 mt-4 mx-auto mb-4">
-                            <!-- Links -->
                             <h6 class="text-uppercase fw-bold mb-4">
                                 Useful car links
                             </h6>
@@ -89,21 +67,13 @@
                                 <a href="https://www.motorpoint.co.uk/stores" target="_blank" class="text-reset">Car sales</a>
                             </p>
                         </div>
-                        <!-- Grid column -->
                     </div>
-                    <!-- Grid row -->
                 </div>
             </section>
-            <!-- Section: Links  -->
-
-        <!-- Copyright -->
-            <div class="p-4" style="background-color: #3e45c2; color: white;">
+            <div class="p-4" style="background-color: #010431; color: white;">
                 ©2024 Galactic Motors. All rights reserved.
             </div>
-        <!-- Copyright -->
         </footer>
-        <!-- Footer -->
-        
         <script src="{{ url_for('static', filename='global.js')}}"></script>
     </body>
 </html>

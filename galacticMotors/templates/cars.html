@@ -3,12 +3,6 @@
     Cars
 {% endblock %}
 {% block content %}
-<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
-    <ol class="breadcrumb mt-4">
-      <li class="breadcrumb-item"><a href="{{ url_for('core.index') }}">Home</a></li>
-      <li class="breadcrumb-item active" aria-current="page">Cars</li>
-    </ol>
-</nav>
 <div class="container-fluid mt-4 carPageAlign">
   <div class="row">
     <div class="col-lg-12 mt-4 mb-4">
@@ -21,9 +15,8 @@
           {% if filters.region %}<span>Region: {{ filters.region }}</span>{% endif %}
           {% if priceFilters.minPrice %}<span>Min price: {{ priceFilters.minPrice }}</span>{% endif %}
           {% if priceFilters.maxPrice %}<span>Max price: {{ priceFilters.maxPrice }}</span>{% endif %}
-              <!-- Clear Filters Button -->
           <form method="get" action="{{ url_for('core.clear_filters') }}">
-            <button type="submit" class="btn btn-secondary btn-md" id="clearFilter" aria-label="Clear the filters">Clear all filters</button>
+            <button type="submit" class="btn btn-secondary btn-md" id="clearFilter" aria-label="Clear the filters">Clear All Filters</button>
           </form>
         </div>
         <form method="post" action="{{ url_for('core.filtered_cars') }}">
@@ -72,14 +65,13 @@
             </div>
           </div>
           <div class="col-lg-12">
-            <button type="submit" class="btn btn-secondary btn-md" id="applyFilter" aria-label="Apply filters">Apply selected filters</button>
+            <button type="submit" class="btn btn-secondary btn-md" id="applyFilter" aria-label="Apply filters">Apply the Selected Filters</button>
           </div>
         </form>
     </div>
   
     <div class="col-lg-8 mt-4 mb-4 text-center">
       <h2>Results</h2>
-      <!-- Display cars -->
       {% for car in cars.items %}
       <div class="card flex-row bg-light">        
         <div class="card-body">
@@ -92,18 +84,15 @@
           <h3 class="card-title">£{{ car.price }}</h3>
           <button type="button" class="btn btn-secondary" id="carButton" aria-label="Open modal to view more details" data-bs-toggle="modal" data-bs-target="#modal{{ car.carIndex }}">View deal</button>
         </div>
-      </div>      
-        <!-- The Modal -->
+      </div>
         <div class="modal fade" id="modal{{ car.carIndex }}">
           <div class="modal-dialog modal-md">
             <div class="modal-content">
-            <!-- Modal Header -->
               <div class="modal-header">
                 <h5 class="float-start text-muted me-4">{{ car.carIndex }}</h5>
                 <h4 class="modal-title">{{ car.make }} {{ car.model }}</h4>
                 <button type="button" class="btn-close" aria-label="Close modal" data-bs-dismiss="modal"></button>
               </div>
-            <!-- Modal body -->
               <div class="modal-body">
                 <div class="block"><img class="float-start img-fluid object-fit-scale border rounded" src="{{ url_for('static', filename=car.make ~ car.model ~ '.png') }}" alt="{{ car.make }} {{ car.model }}"></div>
                 <div class="mt-4 mb-4">
@@ -116,7 +105,6 @@
                   <h6><i class="fa-solid fa-phone"></i> {{ car.telephone }}</h6>
                 </div>
               </div>
-              <!-- Modal footer -->
               <div class="modal-footer">
                 <h3>£{{ car.price }}</h3>
                 <a href="{{ url_for('core.carform', car_id=car.carIndex ) }}" aria-label="Buy this car" class="btn btn-success">Buy</a>
@@ -127,11 +115,9 @@
         {% endfor %}     
       <nav class="mt-4" aria-label="Page navigation">
         <ul class="pagination justify-content-center">
-          <!-- Description of dynamic route if there are session data then @core.filtered-cars if no session data then @core.cars -->
           {% set route_name = 'core.filtered_cars' if session.get('make') or session.get('model') or session.get('town') or session.get('region') or session.get('minPrice') or session.get('maxPrice') else 'core.cars' %}
           {% if cars.has_prev %}
             <li class="page-item">
-              <!-- Dynamic routing in url_for function to access @core.cars or @core.filtered-cars according to session data -->
               <a class="page-link" href="{{ url_for(route_name, page=cars.prev_num, make=session.get('make'), model=session.get('model'), town=session.get('town'), region=session.get('region'), minPrice=session.get('minPrice'), maxPrice=session.get('maxPrice')) }}">
                 <span aria-hidden="true">&laquo;</span>
               </a>

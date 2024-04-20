@@ -21,7 +21,7 @@ ul {
 }
 
 .mainFooter {
-    background-color: #3e45c2;
+    background-color: #010431;
     color: #080808
 }
 
@@ -43,7 +43,11 @@ a {
 }
 
 .carPageAlign {
-    margin-right: -15%;
+    margin-right: -13%;
+}
+
+.carPageAlign .card {
+    margin-bottom: 1vw;
 }
 
 .carFilters {
@@ -98,7 +102,7 @@ button:hover {
 }
 
 .contact {
-    height: 1200px;
+    height: 30vw;
 }
 
 .contact .container {
