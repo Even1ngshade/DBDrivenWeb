@@ -6,7 +6,7 @@ import json
 import stripe
 
 # This is your test secret API key.
-stripe.api_key = 'sk_test_51P5p6G01NS80YBx3tk7qZ9lUS6N3GtoUup5op3nS2b793fu7nXqZx6KCuyk6KpoGYDhC8XGqeTUumky0IUXAaHCX00JetJdWz8'
+stripe.api_key = 'sk_test_51P5p6G01NS80YBx34MgQlX1Q8AWKeaXPYldnl1vzzOPo5EP7McyvnmQS7nQ17f6oAZEDXbHlWVhnTHwTZF6rVPD200iPhMUR6q'
 
 # Creates blueprint for core
 core = Blueprint('core', __name__)

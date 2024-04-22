@@ -77,11 +77,11 @@
           <div class="block"><img class="float-start img-fluid object-fit-scale border rounded" src="{{ url_for('static', filename=car.make ~ car.model ~ '.png') }}" alt="{{ car.make }} {{ car.model }}"></div>
           <h4 class="card-title">{{ car.make }}</h4>
           <h5 class="card-subtitle mb-2 text-body-secondary">{{ car.model }}</h5>
-          <h6><i class="fa-solid fa-palette"></i> {{ car.colour }} <i class="fa-solid fa-gauge-high"></i> {{ car.miles }}</h6>
-          <h5><i class="fa-solid fa-city"></i> {{ car.town }}</h5>
+          <h6><i class="fa-solid fa-palette"></i> {{ car.colour }} <i class="fa-solid fa fa-tachometer"></i> {{ car.miles }}</h6>
+          <h5><i class="fa-solid fa-location-dot"></i> {{ car.town }}</h5>
           <p class="card-text">{{ car.description }}</p>
           <h3 class="card-title">£{{ car.price }}</h3>
-          <button type="button" class="btn btn-secondary" id="carButton" aria-label="click to view more details" data-bs-toggle="modal" data-bs-target="#modal{{ car.carIndex }}">View details</button>
+          <button type="button" class="btn btn-secondary" id="carButton" aria-label="Click to view more details" data-bs-toggle="modal" data-bs-target="#modal{{ car.carIndex }}">View Details</button>
         </div>
       </div>
         <div class="modal fade" id="modal{{ car.carIndex }}">
@@ -95,18 +95,18 @@
               <div class="modal-body">
                 <div class="block"><img class="float-start img-fluid object-fit-scale border rounded" src="{{ url_for('static', filename=car.make ~ car.model ~ '.png') }}" alt="{{ car.make }} {{ car.model }}"></div>
                 <div class="mt-4 mb-4">
-                  <h5><i class="fa-solid fa-registered"></i> {{car.reg }} <i class="fa-solid fa-gauge-high"></i> {{ car.miles }}</h5> 
+                  <h5><i class="fa-regular fa-registered"></i> {{car.reg }} <i class="fa-solid fa fa-tachometer"></i> {{ car.miles }}</h5> 
                   <h5><i class="fa-solid fa-palette"></i> {{ car.colour }}</h5>
-                  <h6><i class="fa-solid fa-circle-info"></i> {{car.description }}</h6>
+                  <h6><i class="fa-solid fa-info"></i> {{car.description }}</h6>
                   <h6>Region: {{ car.region }}</h6> 
-                  <h6> <i class="fa-solid fa-city"></i> {{ car.town }}</h6> 
+                  <h6> <i class="fa-solid fa-location-dot"></i> {{ car.town }}</h6> 
                   <h6><i class="fa-solid fa-briefcase"></i> {{ car.dealer }}</h6>
-                  <h6><i class="fa-solid fa-phone"></i> {{ car.telephone }}</h6>
+                  <h6><i class="fa-solid fa-phone-volume"></i> {{ car.telephone }}</h6>
                 </div>
               </div>
               <div class="modal-footer">
                 <h3>£{{ car.price }}</h3>
-                <a href="{{ url_for('core.carform', car_id=car.carIndex ) }}" aria-label="Buy this car" class="btn btn-success">Buy</a>
+                <a href="{{ url_for('core.carform', car_id=car.carIndex ) }}" aria-label="Buy this car" class="btn btn-success">Purchase</a>
               </div>              
             </div>
           </div>
