@@ -1,2 +1,3 @@
 p-number: 22001064
-Car Sales Website w/ Flask, Heroku, FlaskAdmin...
+Car Sales Website made using Visual Studio Code with Flask for database integration, Flask Admin to manage the adding, removing and editing of the database, Stripe to handle purchases so that the website won’t save their details and to secure against it any unauthorised access to the systems, and hosted on Heroku to display/view the website in the browser.
+Had help from the Stripe website to add it, classmates who've helped me integrate things when I've failed to incorporate it on my own, and the coders on stackoverflow who've helped others out with errors and allowed me to advance my knowledge of coding.
